@@ -4,9 +4,19 @@ fs.readFile('readMe.txt', 'utf8', function(err, data) {
     fs.writeFile('newFileAsync.txt', data);
 });
 
-console.log('Speed test!');
+/* 
+creating and removing directory
+fs.mkdir('stuff', function() {
+    fs.readFile('readMe.txt', 'utf8', function(err,data) {
+        fs.writeFile('./stuff/newFileInNewDirectory.txt', data);
+    });
+});
 
-/* just reading
+fs.unlink('./stuff/newFileAsync.txt', function() {
+    fs.rmdir('stuff');
+});
+
+just reading
 fs.readFile('readMe.txt', 'utf8', function(err, data) {
     console.log(data);
 });
@@ -14,4 +24,8 @@ fs.readFile('readMe.txt', 'utf8', function(err, data) {
 Sync version - blocking code
 var readMe = fs.readFileSync('readMe.txt', 'utf8');
 fs.writeFileSync('newFile.txt', readMe);
+
+deleting file
+fs.unlink('newFile.txt');
+
 */
