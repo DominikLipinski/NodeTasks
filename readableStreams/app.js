@@ -1,10 +1,11 @@
 var http = require('http');
     fs = require('fs');
     myReadStream = fs.createReadStream(__dirname + '/readMe.txt', 'utf8');
+    myWriteStream = fs.createWriteStream(__dirname + '/newFile.txt', 'utf8');
 
 myReadStream.on('data', function(chunk){ 
-console.log("We received new chunk");
-console.log(chunk);
+    console.log("We received new chunk");
+    myWriteStream.write(chunk);
 })
 
 
