@@ -1,0 +1,22 @@
+{
+  "name": "node-tasks",
+  "version": "1.0.0",
+  "description": "testing node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DominikLipinski/NodeTasks.git"
+  },
+  "author": "mabonga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DominikLipinski/NodeTasks/issues"
+  },
+  "homepage": "https://github.com/DominikLipinski/NodeTasks#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
