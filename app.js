@@ -1,16 +1,19 @@
 var express = require('express');
     app = express();
 
+app.set('view engine', 'ejs');
+
 app.get('/', function(req, res) {
-    res.send('This is our homepage!');
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/contact', function(req, res) {
-    res.send('This is our contact!');
+    res.sendFile(__dirname + '/contact.html');
 });
 
 app.get('/profile/:id', function(req, res) {
-    res.send('You wanted to see profile of user of ID: ' + req.params.id);
+    var data = {name: 'John', age: 33};
+    res.render('profile', {person: req.params.id, data: data});
 });
 
 app.listen(3000);
