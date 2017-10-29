@@ -2,7 +2,7 @@ var express = require('express');
     app = express();
     todoController = require('./controllers/todoController');
 
-app.set('view engiine', 'ejs');
+app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
 todoController(app);
