@@ -4,12 +4,25 @@
 <head>
 	<meta charset="utf-8">
     <title>Awesome Website - contact</title>
-    <link href="/assets/styles.css" type="text/css"/>
+    <link href="/assets/styles.css" rel="stylesheet"/>
 </head>
 
 <body>
  <% include partials/nav.ejs %>
     <h1>Contacts Us</h1>
     <p>call us!</p>
+    <p> <%= query.department%> </p>
+
+    <form id="contact-form">
+        <label for="who">Who do you want to contact?</label>
+        <input type="text" name="who" value="<%=query.person%>"/>
+        <label for="department">Which department?</label>
+        <input type="text" name="department" value="<%=query.department%>"/>
+        <label for="email">Your email?</label>
+        <input type="email" name="email"/>
+        <input type="submit" value = 'submit'/>
+    </form>
+
+
 </body>
 </html>
