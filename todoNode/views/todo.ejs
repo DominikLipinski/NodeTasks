@@ -3,25 +3,24 @@
 <head>
 	<meta charset="utf-8">
     <title>To Do List</title>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.js"
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <link href="/assets/styles.css" rel="stylesheet" />
+    <script src="/assets/todo-list.js"></script>
 </head>
 <body>
 <h1>My TO DO list</h1>
 <div id="todo-table">
-    <form>
-        <input type="text" name="item" placeholder="Add new task..." required/>
-        <button type="submit">Add task</button>
-    </form>
-    <ul>
-        <li>Task 1</li>
-        <li>Task 2</li>
-        <li>Task 3</li>
-    </ul>
-
+<form>
+    <input type="text" name="item" placeholder="Add new task..." method="post" required/>
+    <button type="submit">Add task</button>
+</form>
+    
+       <% for(var i=0; i<todos.length; i++) { %>
+    <li><%= todos[i].task %></li>
+        <% } %>
 
 </div>
 </body>
