@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+    <title>Awesome Website - contact</title>
+    <link href="/assets/styles.css" rel="stylesheet"/>
+</head>
+
+<body>
+ <% include partials/nav.ejs %>
+    <h1>Your message was send succesfully!</h1>
+   <p>Thank you. Your message was send to <%=data.who%> from the <%=data.department%> department. </p>
+    <p>We will reply to <%=data.email%> </p>
+
+</body>
+</html>
