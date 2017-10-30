@@ -15,8 +15,10 @@ app.post('/todo', urlencodedParser, function(req, res) {
     res.json(data);
     });
 
-app.delete('/todo', function(req, res) {
-        
+app.delete('/todo/:task', function(req, res) {
+        data = data.filter(function(todo) {
+            return todo.task.replace(/ /g, '-') !== req.params.task;
+        })
 });
 
 };
