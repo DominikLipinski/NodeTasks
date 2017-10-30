@@ -8,32 +8,34 @@ var todoSchema = new mongoose.Schema({
 
 var Todo = mongoose.model('Todo', todoSchema);
 
-var itemOne = Todo({item: 'run to hospital'}).save(function(err) {
-    if(err) throw err;
-    console.log('item saved');
-})
+
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
-var data = [{task: 'get milk'}, {task: 'buy eggs'}, {task: 'go to sleep'}];
+// var data = [{task: 'get milk'}, {task: 'buy eggs'}, {task: 'go to sleep'}];
 
 
 module.exports = function(app) {
 
 app.get('/todo', function(req, res) {
+    Todo.find({}, function(err) {
+        if(err) throw err;
     res.render('todo', {todos: data});
+    });
 });
 
 app.post('/todo', urlencodedParser, function(req, res) {
-    data.push(req.body);
-    // res.render('todo', {todos: data});
-    res.json(data);
+    
+    var newTodo = Todo(req.body).save(function(err) {
+        if(err) throw err;
+        res.json(data);
+    }) ;
     });
 
 app.delete('/todo/:task', function(req, res) {
-        data = data.filter(function(todo) {
-            return todo.task.replace(/ /g, '-') !== req.params.task;
-        })
+    Todo.find({item: req.params.item.replace(/\-/g, " ")}).remove(function(err) {
+        if(err) throw err;
         res.json(data);
+        });
 });
 
 };
