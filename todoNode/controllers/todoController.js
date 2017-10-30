@@ -1,4 +1,5 @@
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var data = [{task: 'get milk'}, {task: 'buy eggs'}, {task: 'go to sleep'}];
 
@@ -19,6 +20,7 @@ app.delete('/todo/:task', function(req, res) {
         data = data.filter(function(todo) {
             return todo.task.replace(/ /g, '-') !== req.params.task;
         })
+        res.json(data);
 });
 
 };
